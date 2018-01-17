@@ -11,7 +11,6 @@ const webpack = require('webpack');
 const server = new WebpackDevServer(webpack(config), {
   historyApiFallback: true,
   publicPath: config.output.publicPath,
-  hot: true,
   setup: function(app) {
   }
 });
