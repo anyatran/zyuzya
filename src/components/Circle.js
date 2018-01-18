@@ -58,7 +58,7 @@ export default class Circle {
       this.p.noStroke()
       this.p.beginShape()
       coordinates.forEach((coordinate) => {
-        this.p.fill(0) // fill the small circles
+        this.p.fill(255) // fill the small circles
         this.p.ellipse(coordinate.x, coordinate.y, 10)
         this.p.curveVertex(coordinate.x, coordinate.y)
       })
@@ -112,7 +112,7 @@ export default class Circle {
     this.p.ellipse(this.x, this.y, this.rx, this.ry)
   }
 
-  mousePressed(event) {
+  mousePressed() {
     const closestIndex = this.closestCoordinate({x: this.p.mouseX, y: this.p.mouseY})
     if(closestIndex) {
       this.p.mouseDragged = function () {

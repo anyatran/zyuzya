@@ -1,9 +1,14 @@
 import Circle from './components/Circle'
+import Sound from './components/Sound'
 
-const BG_COLOR = 255
+const BG_COLOR = 0
 
 const sketch = (p) => {
-  let x, y, circleMain, circleOutline;
+  let x, y, circleMain, circleOutline, sound;
+
+  p.preload = function () {
+    sound = new Sound(p, '../../assets/audio/sequence1.mp3')
+  }
 
   p.setup = function () {
     p.createCanvas(p.windowWidth, p.windowHeight)
@@ -15,6 +20,11 @@ const sketch = (p) => {
 
     // small circle
     circleOutline = new Circle(p, x, y, 50, 50, 'rgb(0,255,0)')
+
+    // play song
+    sound.play()
+
+    // sound = p.loadSound('../assets/audio/sequence1.mp3')
   }
 
   p.draw = function () {
@@ -51,10 +61,14 @@ const sketch = (p) => {
     }
   }
 
-  p.mousePressed = function (event) {
-    circleMain.mousePressed(event)
+  p.mousePressed = function () {
+    // sound.play()
+    sound.mousePressed()
+    circleMain.mousePressed()
+  }
 
-
+  p.mouseReleased = function() {
+    sound.mouseReleased()
   }
 }
 
