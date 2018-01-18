@@ -10,7 +10,7 @@ export default class Sound {
   setup() {
     this.sound.playMode('sustain')
     this.amplitude.setInput(this.sound)
-    console.log(this.sound)
+    // console.log(this.sound)
   }
 
   play() {
@@ -18,13 +18,14 @@ export default class Sound {
   }
 
   mousePressed() {
+    const a = 1
     // this.sound.play()
-    console.log('play')
+    // console.log('play')
   }
 
   mouseReleased() {
     // this.sound.pause()
-    console.log('relesase')
+    const a = 1
   }
 
   getAmplitude() {

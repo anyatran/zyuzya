@@ -33,6 +33,7 @@ export default class Circle {
   drawCoordinates() {
     // console.log(this.coordinates)
     const shuffled = this.shuffle()
+    // console.log(this.fill, this.random)
     this.p.noStroke();
     this.p.beginShape()
     shuffled.forEach((coordinate) => {
@@ -40,7 +41,7 @@ export default class Circle {
       // this.p.ellipse(coordinate.x, coordinate.y, 10)
       this.p.curveVertex(coordinate.x, coordinate.y)
     })
-    this.p.fill(this.fill) // fill the main circle
+    this.p.fill(255 * this.random * 4, 255 - this.random*600, 255 - this.random*200) // fill the main circle
 
     this.p.endShape(this.p.CLOSE)
     // console.log(this.p)
@@ -63,8 +64,8 @@ export default class Circle {
       this.p.noStroke()
       this.p.beginShape()
       coordinates.forEach((coordinate) => {
-        this.p.fill(255) // fill the small circles
-        this.p.ellipse(coordinate.x, coordinate.y, 10)
+        // this.p.fill(255) // fill the small circles
+        // this.p.ellipse(coordinate.x, coordinate.y, 10)
         this.p.curveVertex(coordinate.x, coordinate.y)
       })
       this.p.fill(this.p.red(fillColor), this.p.green(fillColor), this.p.blue(fillColor), layersLeft*0.1) // fill the main circle

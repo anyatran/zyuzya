@@ -17,7 +17,7 @@ const sketch = (p) => {
     x = p.width / 2
     y = p.height
 
-    circleMain = new Circle(p, p.width / 2, p.height / 2, 400, 600, 'rgb(255, 204, 0)')
+    circleMain = new Circle(p, p.width / 2, p.height / 2, 400, 600, p.color(255, 204, 0))
 
     // small circle
     circleOutline = new Circle(p, x, y, 50, 50, 'rgb(0,255,0)')
@@ -29,7 +29,7 @@ const sketch = (p) => {
   }
 
   p.draw = function () {
-    p.background(BG_COLOR)
+    p.background('rgba(0, 0, 0, 0.1)')
     p.stroke(50)
 
     // p.drawCircle(circleMain)
