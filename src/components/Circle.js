@@ -6,8 +6,13 @@ export default class Circle {
     this.rx = rx
     this.ry = ry
     this.fill = fill
+    this.random = 0
 
     this.coordinates = this.setCoordinates()
+  }
+
+  setRandom(n) {
+    this.random = n
   }
 
   setCoordinates() {
@@ -76,7 +81,7 @@ export default class Circle {
   shuffle() {
     let shuffled = []
     this.coordinates.forEach(coordinate => {
-      const range = this.rx * 0.005
+      const range = this.rx * this.random / 5
       const x = this.p.random(coordinate.x - range, coordinate.x + range)
       const y = this.p.random(coordinate.y - range, coordinate.y + range)
       shuffled.push({

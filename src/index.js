@@ -13,6 +13,7 @@ const sketch = (p) => {
   p.setup = function () {
     p.createCanvas(p.windowWidth, p.windowHeight)
     p.frameRate(4)
+    p.cursor(p.CROSS);
     x = p.width / 2
     y = p.height
 
@@ -34,6 +35,7 @@ const sketch = (p) => {
     // p.drawCircle(circleMain)
     // p.drawCircle(circleOutline)
     circleMain.drawCoordinates()
+    circleMain.setRandom(sound.getAmplitude())
     // circleOutline.drawCoordinates()
 
     // main circle
