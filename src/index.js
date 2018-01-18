@@ -21,10 +21,10 @@ const sketch = (p) => {
     p.background(BG_COLOR)
     p.stroke(50)
 
-    p.drawCircle(circleMain)
+    // p.drawCircle(circleMain)
     // p.drawCircle(circleOutline)
     circleMain.drawCoordinates()
-    circleOutline.drawCoordinates()
+    // circleOutline.drawCoordinates()
 
     // main circle
 

@@ -31,19 +31,52 @@ export default class Circle {
     this.p.noStroke();
     this.p.beginShape()
     shuffled.forEach((coordinate) => {
-      this.p.fill(0) // fill the small circles
-      this.p.ellipse(coordinate.x, coordinate.y, 10)
+      // this.p.fill(0) // fill the small circles
+      // this.p.ellipse(coordinate.x, coordinate.y, 10)
       this.p.curveVertex(coordinate.x, coordinate.y)
     })
     this.p.fill(this.fill) // fill the main circle
 
     this.p.endShape(this.p.CLOSE)
+    // console.log(this.p)
+
+    this.drawLayers(shuffled, 3)
+  }
+
+  /**
+  * draw layers for the shape
+  * @param coordinates: array of coordinates for OG shape
+  * @param layers: number of layers
+  **/
+  drawLayers(coordinates, layers) {
+
+
+    let layersLeft = layers
+    const fillColor = this.p.color(this.fill)
+    while (layersLeft > 0) {
+      // console.log(layersLeft)
+      this.p.noStroke()
+      this.p.beginShape()
+      coordinates.forEach((coordinate) => {
+        this.p.fill(0) // fill the small circles
+        this.p.ellipse(coordinate.x, coordinate.y, 10)
+        this.p.curveVertex(coordinate.x, coordinate.y)
+      })
+      this.p.fill(this.p.red(fillColor), this.p.green(fillColor), this.p.blue(fillColor), layersLeft*0.1) // fill the main circle
+
+
+      this.p.endShape(this.p.CLOSE)
+      this.p.scale(layersLeft * 20)
+
+      layersLeft -= 1
+    }
+
   }
 
   shuffle() {
     let shuffled = []
     this.coordinates.forEach(coordinate => {
-      const range = this.rx * 0.02
+      const range = this.rx * 0.005
       const x = this.p.random(coordinate.x - range, coordinate.x + range)
       const y = this.p.random(coordinate.y - range, coordinate.y + range)
       shuffled.push({
