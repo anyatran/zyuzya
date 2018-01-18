@@ -14,6 +14,7 @@ export default class Sound {
   }
 
   play() {
+    this.sound.jump(70)
     this.sound.play()
   }
 
