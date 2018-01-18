@@ -41,42 +41,11 @@ export default class Circle {
       // this.p.ellipse(coordinate.x, coordinate.y, 10)
       this.p.curveVertex(coordinate.x, coordinate.y)
     })
-    this.p.fill(255 * this.random * 4, 255 - this.random*600, 255 - this.random*200) // fill the main circle
+    // this.p.fill(255 * this.random * 4, 255 - this.random*600, 255 - this.random*200) // fill the main circle
+    this.p.fill(255 * this.random * 3, 150 - this.random*600, 150 + this.random*200) // fill the main circle
 
     this.p.endShape(this.p.CLOSE)
     // console.log(this.p)
-
-    this.drawLayers(shuffled, 3)
-  }
-
-  /**
-  * draw layers for the shape
-  * @param coordinates: array of coordinates for OG shape
-  * @param layers: number of layers
-  **/
-  drawLayers(coordinates, layers) {
-
-
-    let layersLeft = layers
-    const fillColor = this.p.color(this.fill)
-    while (layersLeft > 0) {
-      // console.log(layersLeft)
-      this.p.noStroke()
-      this.p.beginShape()
-      coordinates.forEach((coordinate) => {
-        // this.p.fill(255) // fill the small circles
-        // this.p.ellipse(coordinate.x, coordinate.y, 10)
-        this.p.curveVertex(coordinate.x, coordinate.y)
-      })
-      this.p.fill(this.p.red(fillColor), this.p.green(fillColor), this.p.blue(fillColor), layersLeft*0.1) // fill the main circle
-
-
-      this.p.endShape(this.p.CLOSE)
-      this.p.scale(layersLeft * 20)
-
-      layersLeft -= 1
-    }
-
   }
 
   shuffle() {
