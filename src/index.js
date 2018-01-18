@@ -7,7 +7,7 @@ const sketch = (p) => {
   let x, y, circleMain, circleOutline, sound;
 
   p.preload = function () {
-    sound = new Sound(p, '../../assets/audio/sequence1.mp3')
+    sound = new Sound(p, '../../assets/audio/auteur.mp3')
   }
 
   p.setup = function () {
