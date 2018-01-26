@@ -4,32 +4,32 @@ import Sound from './components/Sound'
 const BG_COLOR = 0
 
 const sketch = (p) => {
-  let x, y, circleMain, circleOutline, sound;
+  let x, y, circleMain, circleOutline, sound, bg;
 
   p.preload = function () {
     sound = new Sound(p, '../../assets/audio/auteur.mp3')
+    bg = p.loadImage('../assets/images/bg.jpg')
   }
 
   p.setup = function () {
     p.createCanvas(p.windowWidth, p.windowHeight)
-    p.frameRate(4)
+    p.frameRate(10)
     p.cursor(p.CROSS);
     x = p.width / 2
     y = p.height
 
-    circleMain = new Circle(p, p.width / 2, p.height / 2, 400, 600, p.color(255, 204, 0))
+    circleMain = new Circle(p, p.width / 2, p.height / 2, 400, 400, p.color(255, 204, 0))
 
     // small circle
     circleOutline = new Circle(p, x, y, 50, 50, 'rgb(0,255,0)')
 
     // play song
     sound.play()
-
-    // sound = p.loadSound('../assets/audio/sequence1.mp3')
   }
 
   p.draw = function () {
     p.background('rgba(0, 0, 0, 0.1)')
+    // p.background(bg, 0.5)
     p.stroke(50)
 
     // p.drawCircle(circleMain)

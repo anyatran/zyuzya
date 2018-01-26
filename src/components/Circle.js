@@ -42,8 +42,8 @@ export default class Circle {
       this.p.curveVertex(coordinate.x, coordinate.y)
     })
     // this.p.fill(255 * this.random * 4, 255 - this.random*600, 255 - this.random*200) // fill the main circle
-    this.p.fill(255 * this.random * 3, 150 - this.random*600, 150 + this.random*200) // fill the main circle
-
+    this.p.fill(255 * this.random * 1.8, 180 - this.random*600, 180 + this.random*200) // fill the main circle
+    // this.p.fill('rgba(255,255,255,0.6)') // white
     this.p.endShape(this.p.CLOSE)
     // console.log(this.p)
   }
